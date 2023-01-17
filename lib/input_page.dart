@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'components/reusable_card.dart';
+import 'components/gender_card.dart';
 
 const Color activeCardColor = Color(0xFF1D1E33);
 const Color bottomCardColor = Color(0xFFEB1555);
@@ -24,8 +26,22 @@ class _InputPageState extends State<InputPage> {
           Expanded(
             child: Row(
               children: [
-                Expanded(child: ReusableCard(color: activeCardColor)),
-                Expanded(child: ReusableCard(color: activeCardColor))
+                Expanded(
+                    child: ReusableCard(
+                      color: activeCardColor,
+                      cardChild: const GenderCard(
+                        genderIcon: FontAwesomeIcons.mars,
+                        label: 'MALE',
+                      ),
+                )),
+                Expanded(
+                    child: ReusableCard(
+                      color: activeCardColor,
+                      cardChild: const GenderCard(
+                        genderIcon: FontAwesomeIcons.venus,
+                        label: 'FEMALE',
+                      ),
+                ))
               ],
             ),
           ),
