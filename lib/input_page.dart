@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/components/round_icon_button.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'components/reusable_card.dart';
@@ -18,6 +19,7 @@ class _InputPageState extends State<InputPage> {
   Gender? selectedGender;
   int height = 180;
   int weight = 75;
+  int age = 20;
 
   @override
   Widget build(BuildContext context) {
@@ -131,24 +133,28 @@ class _InputPageState extends State<InputPage> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            FloatingActionButton(
-                              onPressed: (){},
-                              backgroundColor: const Color(0xFF4C4F5E),
-                              child: const Icon(
-                                Icons.minimize,
-                                color: Colors.white,
-                              ),
+                            RoundIconButton(
+                              onPressed: () {
+                                setState(() {
+                                  if(weight > 10) {
+                                    weight--;
+                                  } else {
+                                    weight = 10;
+                                  }
+                                });
+                              },
+                              iconData: FontAwesomeIcons.minus,
                             ),
                             const SizedBox(
                               width: 10.0,
                             ),
-                            FloatingActionButton(
-                              onPressed: (){},
-                              backgroundColor: const Color(0xFF4C4F5E),
-                              child: const Icon(
-                                Icons.add,
-                                color: Colors.white,
-                              ),
+                            RoundIconButton(
+                              onPressed: () {
+                                setState(() {
+                                  weight++;
+                                });
+                              },
+                              iconData: FontAwesomeIcons.plus,
                             ),
                           ],
                         ),
@@ -156,7 +162,52 @@ class _InputPageState extends State<InputPage> {
                     ),
                   ),
                 ),
-                Expanded(child: ReusableCard(color: activeCardColor))
+                Expanded(
+                  child: ReusableCard(
+                    color: activeCardColor,
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          'AGE',
+                          style: labelTextStyle,
+                        ),
+                        Text(
+                          age.toString(),
+                          style: numberTextStyle,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            RoundIconButton(
+                              onPressed: () {
+                                setState(() {
+                                  if(age > 5) {
+                                    age--;
+                                  } else {
+                                    age = 5;
+                                  }
+                                });
+                              },
+                              iconData: FontAwesomeIcons.minus,
+                            ),
+                            const SizedBox(
+                              width: 10.0,
+                            ),
+                            RoundIconButton(
+                              onPressed: () {
+                                setState(() {
+                                  age++;
+                                });
+                              },
+                              iconData: FontAwesomeIcons.plus,
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
