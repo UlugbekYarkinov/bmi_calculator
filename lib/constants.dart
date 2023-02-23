@@ -18,3 +18,19 @@ const bottomButtonTextStyle = TextStyle(
   fontSize: 25.0,
   fontWeight: FontWeight.bold,
 );
+const TextStyle bigTitleTextStyle = TextStyle(
+  fontSize: 40.0,
+  fontWeight: FontWeight.bold,
+);
+const resultTitleTextStyle = TextStyle(
+  fontSize: 25.0,
+  color: Color(0xFF24D876),
+  fontWeight: FontWeight.bold,
+);
+const resultNumberTextStyle = TextStyle(
+  fontSize: 100.0,
+  fontWeight: FontWeight.bold,
+);
+const resultSubtitleTextStyle = TextStyle(
+  fontSize: 20.0,
+);

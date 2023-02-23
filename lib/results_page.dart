@@ -15,13 +15,42 @@ class ResultsPage extends StatelessWidget {
         ),
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(
-            child: Text('Your Result'),
+            child: Container(
+              padding: const EdgeInsets.all(15.0),
+              alignment: Alignment.bottomLeft,
+              child: const Text(
+                'Your Result',
+                style: bigTitleTextStyle,
+              ),
+            ),
           ),
           Expanded(
             flex: 5,
-            child: ReusableCard(color: inactiveCardColor),
+            child: ReusableCard(
+              color: inactiveCardColor,
+              cardChild: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Text(
+                    'NORMAL',
+                    style: resultTitleTextStyle,
+                  ),
+                  Text(
+                    '22',
+                    style: resultNumberTextStyle,
+                  ),
+                  Text(
+                    'Your BMI is normal. You don\'t keep any diet.',
+                    textAlign: TextAlign.center,
+                    style: resultSubtitleTextStyle,
+                  ),
+                ],
+              ),
+            ),
           ),
           Expanded(
             child: BottomButton(
